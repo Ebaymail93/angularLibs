@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,8 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  @Input() options: any
+  @Input() paths: any
   isShowing = false;
-  constructor(private router: Router) { }
+  constructor() { }
   mouseenter() {
     if (!this.isShowing) {
       this.isShowing = true;
@@ -21,17 +23,14 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    
-  }
-
-  logout(){
-    localStorage.removeItem('loggedUser');
-    this.router.navigateByUrl('')
-  }
-
   sidebarClick() {
-    this.isShowing = !this.isShowing;
+    if(!this.options.autoExpand) {
+      this.isShowing = !this.isShowing;
+    }
+  }
+
+  ngOnInit(): void {
+
   }
 
 }
