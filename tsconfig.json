@@ -16,7 +16,7 @@
     "importHelpers": true,
     "paths": {
       "sidebar": [
-        "dist/sidebar/sidebar",
+        "dist/sidebar/*",
         "dist/sidebar"
       ]
     },
