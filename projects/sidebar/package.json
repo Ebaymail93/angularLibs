@@ -1,6 +1,8 @@
 {
-  "name": "sidebar",
-  "version": "0.0.1",
+  "name": "ng-simple-sidenav",
+  "version": "1.0.2",
+  "author": "Vincenzo Romano",
+  "description": "A simple customizable sidenav for Angular projects",
   "peerDependencies": {
     "@angular/common": "^11.2.14",
     "@angular/core": "^11.2.14"

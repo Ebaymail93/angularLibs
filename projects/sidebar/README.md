@@ -19,6 +19,7 @@ After building your library with `ng build sidebar`, go to the dist folder `cd d
 
 Run `ng test sidebar` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Further help
+## Local installation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## How to install from npm

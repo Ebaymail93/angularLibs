@@ -10,7 +10,7 @@
 <body>
   <div class="sidebar" (mouseenter)="options.autoExpand? sidebarMouseEnter() : ''"
     (mouseleave)="options.autoExpand? sidebarMouseLeave() : ''" [ngClass]="{open: showSidebar, push: options.push}">
-    <div (click)="toggleClick()" class="logo-details"
+    <div *ngIf="options.topLogoPath || options.topTitle" (click)="toggleClick()" class="logo-details"
       [ngClass]="{'justify-center': !options.topLogoPath && options.autoExpand}">
       <div class="toggle-wrap" [ngClass]="{active: showSidebar}" *ngIf="!options.autoExpand">
         <span class="toggle-bar"></span>
@@ -19,8 +19,8 @@
         <img src="{{options.topLogoPath}}" alt="profileImg">
       </div>
       <ng-template #initialLetter><span [ngClass]="{hide: showSidebar}" class="initial_letter"
-          *ngIf="options.autoExpand">C</span></ng-template>
-      <div class="logo_name">
+          *ngIf="options.autoExpand">{{options.topTitle.substring(0, 1)}}</span></ng-template>
+      <div class="top-title">
         <p>{{options.topTitle}}</p>
       </div>
     </div>
@@ -28,7 +28,7 @@
       <li *ngIf="options.searchOpt">
         <i (click)="searchClick()" class='bx bx-search'></i>
         <input [(ngModel)]="inputText" (ngModelChange)='options.searchOpt.customSearch? sendText() : searchFunction()' placeholder="{{options.searchOpt.placeholder}}">
-        <ul class="sub-menu" *ngIf="searchOutput.length">
+        <ul class="sub-menu" *ngIf="searchOutput && searchOutput.length">
           <li *ngFor="let item of searchOutput"  (click)="sidebarClick()">
             <a  [routerLink]="['/', item.path]" routerLinkActive="router-link-active">{{item.label}}</a>
           </li>
@@ -47,14 +47,14 @@
           <span class="tooltip" *ngIf="item.tooltip">{{item.tooltip}}</span>
         </ng-template>
       </li>
-      <li class="profile" *ngIf="options.logout">
+      <li class="profile" *ngIf="options.bottomLogoPath || options.bottomTitle || options.logout">
         <div class="profile-details">
           <img src="{{options.bottomLogoPath}}" alt="profileImg" *ngIf="options.bottomLogoPath">
-          <div class="name_job">
-            <div class="name">{{options.bottomTitle}}</div>
+          <div class="bottom-title">
+            <p>{{options.bottomTitle}}</p>
           </div>
         </div>
-        <i class='bx bx-log-out cursor-pointer' id="log_out" (click)='options.logout()'></i>
+        <i *ngIf="options.logout" class='bx bx-log-out cursor-pointer' id="log_out" (click)='options.logout()'></i>
       </li>
     </ul>
   </div>
