@@ -1,6 +1,6 @@
 {
   "name": "ng-simple-sidenav",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Vincenzo Romano",
   "description": "A simple customizable sidenav for Angular projects",
   "peerDependencies": {

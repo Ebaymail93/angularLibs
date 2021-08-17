@@ -446,6 +446,11 @@
 
 .submenu-label{
   font-size: 20px !important;
+  color: #fff;
+  font-size: 15px;
+  padding: 5px 15px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
 .sidebar .nav-list li .sub-menu a:hover{

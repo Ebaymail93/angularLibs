@@ -40,7 +40,7 @@
           <span class="links_name">{{item.link_name}}</span>
         </a>
         <ul class="sub-menu" *ngIf="item.submenu.length;else tooltip">
-          <li *ngIf="!showSidebar"><a class="submenu-label">{{item.link_name}}</a></li>
+          <li *ngIf="!showSidebar"><span class="submenu-label">{{item.link_name}}</span></li>
           <li *ngFor="let submenu of item.submenu"><a [routerLink]="['/', submenu.path]">{{submenu.label}}</a></li>
         </ul>
         <ng-template #tooltip>
